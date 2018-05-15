@@ -8,7 +8,11 @@ import actions from "../actions.js";
 
 class Main extends Component {
   render() {
+    return (
+      <div>
 
+      </div>
+    );
   }
 }
 
