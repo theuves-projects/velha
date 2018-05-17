@@ -13,7 +13,7 @@ function cellsReducer(state = initialState, action) {
   switch (action.type) {
     case PLAY:
       return state.map(function (cell) {
-        if (cell.i === action.index && !cell.name && /^(user|computer)$/.test(action.player)) {
+        if (cell.i === action.index && !cell.name && /^(x|o)$/.test(action.player)) {
           return Object.assign({}, cell, {
             name: action.player
           });
