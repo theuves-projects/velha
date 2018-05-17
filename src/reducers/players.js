@@ -1,11 +1,15 @@
 import {
-  UPDATE_PLAYER,
   ADD_CELL,
-  RESET
+  CHANGE_SYMBOL,
+  RESET,
 } from "../types.js";
 
 const initialState = {
   current: "user",
+  symbol: {
+    user: "x",
+    computer: "o"
+  },
   user: [],
   computer: []
 };
@@ -36,6 +40,17 @@ function playersReducer(state = initialState, action) {
           break;
       }
       break;
+    case CHANGE_SYMBOL:
+      return Object.assign({}, state, {
+        symbol: {
+          user: state.symbol.user === "x"
+            ? "o"
+            : "x",
+          computer: state.symbol.computer === "x"
+            ? "o"
+            : "x"
+        }
+      });
     case RESET:
       return initialState;
       break;
