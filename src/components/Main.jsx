@@ -6,7 +6,10 @@ import velha from "theuves-velha";
 // others
 import actions from "../actions.js";
 
+// components
 import Table from "./Table/index.jsx";
+import Alert from "./Alert/index.jsx";
+import Scoreboard from "./Scoreboard.jsx";
 
 class Main extends Component {
   selectCell = (index) => {
@@ -19,13 +22,24 @@ class Main extends Component {
   render() {
     return (
       <div>
+        <Scoreboard
+          player="x"
+          score="10"
+          position="left"
+        />
+        <Scoreboard
+          player="o"
+          score="10"
+          position="right"
+        />
         <Table
-          size={280}
+          size={324}
           borders={5}
           cells={this.props.state.cells}
           colors={{border: "#34495e", x: "#8e44ad", o: "#27ae60"}}
           onSelectCell={this.selectCell}
         />
+        <Alert />
       </div>
     );
   }

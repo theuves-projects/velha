@@ -7,7 +7,7 @@ import Player from "./Player/index.jsx";
 const Container = styled.div`
   position: fixed;
   ${props => props.position}: 0;
-  top: 35%;
+  top: ${props => props.top}%;
   transform: translateY(-50%);
   display: inline-flex;
   flex-direction: column;
@@ -29,11 +29,13 @@ const Score = styled.div`
 function This({
   player,
   score,
+  top = 40,
   position = "left"
 }) {
   return (
     <Container
       position={position}
+      top={top}
     >
       <PlayerContainer>
         <Player

@@ -25,7 +25,7 @@ function This({
   onClick,
   borders: border,
 }) {
-  const PERCENTAGE = 64;
+  const PERCENTAGE = 75;
   const playerSize = PERCENTAGE * size / 100;
   size += "px";
 

@@ -11,7 +11,7 @@ const Table = styled.div`
   grid-auto-rows: auto;
   background-color: ${props => props.color};
   position: fixed;
-  top: 35%;
+  top: ${props => props.top}%;
   left: 50%;
   transform: translate(-50%, -50%);
 `;
@@ -19,6 +19,7 @@ const Table = styled.div`
 function This({
   cells,
   onSelectCell,
+  top = 40,
   borders: border = 3,
   colors = {},
   size = 300
@@ -30,6 +31,7 @@ function This({
 
   return (
     <Table
+      top={top}
       gap={gap}
       color={colors.border}
     >
