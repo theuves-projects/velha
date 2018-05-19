@@ -12,6 +12,7 @@ const Container = styled.div`
   display: inline-flex;
   flex-direction: column;
   text-align: center;
+  z-index: 1;
 `;
 
 const PlayerContainer = styled.div`
@@ -28,7 +29,7 @@ const Score = styled.div`
 function This({
   player,
   score,
-  position
+  position = "left"
 }) {
   return (
     <Container
