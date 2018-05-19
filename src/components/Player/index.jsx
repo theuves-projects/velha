@@ -5,34 +5,53 @@ import styled from "styled-components";
 import PlayerO from "./PlayerO.jsx";
 import PlayerX from "./PlayerX.jsx";
 
-// constants
-const BORDER = 3;
-const COLOR = "black";
-const SIZE = 32;
+const Animation = styled.div`
+  ${props => props.animate && "animation: show .15s;"}
+
+  @keyframes show {
+    from {
+      transform: scale(6);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+`;
 
 function This({
   name,
-  border = BORDER,
-  color = COLOR,
-  size = SIZE
+  animate = false,
+  border = 3,
+  color = "black",
+  size = 32
 }) {
   switch (name) {
     case "o":
       return (
-        <PlayerO
-          border={border}
-          color={color}
-          size={size}
-        />
+        <Animation
+          animate={animate}
+        >
+          <PlayerO
+            border={border}
+            color={color}
+            size={size}
+          />
+        </Animation>
       );
       break;
     case "x":
       return (
-        <PlayerX
-          border={border}
-          color={color}
-          size={size}
-        />
+        <Animation
+          animate={animate}
+        >
+          <PlayerX
+            border={border}
+            color={color}
+            size={size}
+          />
+        </Animation>
       )
       break;
   }

@@ -9,6 +9,7 @@ const TableCell = styled.div`
   height: ${props => props.size};
   position: relative;
   background-color: white;
+  z-index: -1;
 `;
 
 const Center = styled.div`
@@ -16,6 +17,7 @@ const Center = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: -1;
 `;
 
 function This({
@@ -36,6 +38,7 @@ function This({
     >
       <Center>
         <Player
+          animate={true}
           border={border}
           color={colors[player]}
           name={player}
