@@ -21,7 +21,7 @@ class Main extends Component {
       <div>
         <Table
           size={300}
-          borders={3}
+          borders={5}
           color="black"
           cells={this.props.state.cells}
           onSelectCell={this.selectCell}
