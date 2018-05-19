@@ -20,10 +20,10 @@ class Main extends Component {
     return (
       <div>
         <Table
-          size={300}
+          size={280}
           borders={5}
-          color="black"
           cells={this.props.state.cells}
+          colors={{border: "#34495e", x: "#8e44ad", o: "#27ae60"}}
           onSelectCell={this.selectCell}
         />
       </div>

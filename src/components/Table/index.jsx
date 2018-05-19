@@ -16,16 +16,18 @@ function This({
   cells,
   onSelectCell,
   borders: border = 3,
-  color = "black",
+  colors = {},
   size = 300
 }) {
   size = (size - border * 2) / 3;
+  colors = Object.assign({border: "gray", x: "black", o: "black"}, colors);
+
   const gap = border + "px";
 
   return (
     <Table
       gap={gap}
-      color={color}
+      color={colors.border}
     >
       {cells.map(cell => {
         return (
@@ -33,7 +35,7 @@ function This({
             key={cell.i}
             onClick={() => onSelectCell(cell.i)}
             player={cell.name}
-            color={color}
+            colors={colors}
             borders={border}
             size={size}
           />

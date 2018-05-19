@@ -19,7 +19,7 @@ const Center = styled.div`
 `;
 
 function This({
-  color,
+  colors,
   player,
   size,
   onClick,
@@ -37,7 +37,7 @@ function This({
       <Center>
         <Player
           border={border}
-          color={color}
+          color={colors[player]}
           name={player}
           size={playerSize}
         />
