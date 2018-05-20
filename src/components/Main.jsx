@@ -24,7 +24,7 @@ const Main = styled.div`
 
 class This extends Component {
   state = {
-    showAlert: true,
+    showAlert: false,
     winner: "x"
   }
   selectCell = index => {
