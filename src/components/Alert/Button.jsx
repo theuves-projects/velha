@@ -11,7 +11,6 @@ const Button = styled.button`
   outline: none;
   background-color: #e67e22;
   color: white;
-
   transform: translateY(-50%);
   filter: contrast(1);
   transition: all .15s;
@@ -20,17 +19,21 @@ const Button = styled.button`
     transform: translateY(-50%) scale(1.15);
     filter: contrast(1.05);
   }
-
   &:active {
     transform: translateY(-50%) scale(1.1);
     filter: contrast(.95);
   }
 `;
 
-function This() {
+function This({
+  onClick,
+  value
+}) {
   return (
-    <Button>
-      ↻
+    <Button
+      onClick={onClick}
+    >
+      {value}
     </Button>
   );
 }
