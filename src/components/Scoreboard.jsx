@@ -12,7 +12,6 @@ const Container = styled.div`
   display: inline-flex;
   flex-direction: column;
   text-align: center;
-  z-index: 1;
 `;
 
 const PlayerContainer = styled.div`
