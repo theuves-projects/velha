@@ -15,7 +15,8 @@ import Scoreboard from "./Scoreboard.jsx";
 const Main = styled.div`
   position: relative;
   margin: 0 auto;
-  width: 800px;
+  max-width: 750px;
+  min-width: 500px;
   height: 100%;
   background-color: white;
 `;
