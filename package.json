@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "watch": "webpack -w --mode development"
+    "watch": "webpack -w --mode development",
+    "test": "jest --colors"
   },
   "author": "",
   "license": "ISC",
