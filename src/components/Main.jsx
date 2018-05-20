@@ -1,7 +1,8 @@
-import React, {Component, Fragment} from "react";
+import React, {Component} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import velha from "theuves-velha";
+import styled from "styled-components";
 
 // others
 import actions from "../actions.js";
@@ -11,7 +12,15 @@ import Table from "./Table/index.jsx";
 import Alert from "./Alert/index.jsx";
 import Scoreboard from "./Scoreboard.jsx";
 
-class Main extends Component {
+const Main = styled.div`
+  position: relative;
+  margin: 0 auto;
+  width: 800px;
+  height: 100%;
+  background-color: white;
+`;
+
+class This extends Component {
   selectCell = (index) => {
     const {current} = this.props.state.players;
     const player = this.props.state.players.symbol[current];
@@ -21,7 +30,7 @@ class Main extends Component {
   }
   render() {
     return (
-      <div>
+      <Main>
         <Scoreboard
           player="x"
           score="10"
@@ -40,7 +49,7 @@ class Main extends Component {
           onSelectCell={this.selectCell}
         />
         <Alert />
-      </div>
+      </Main>
     );
   }
 }
@@ -61,5 +70,5 @@ export default connect(
   mapStateToProps,
   mapDispatchToProps
 )(
-  Main
+  This
 );

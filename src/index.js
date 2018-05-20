@@ -4,6 +4,7 @@ import {Provider} from "react-redux";
 
 // components
 import Main from "./components/Main.jsx";
+import "./globalStyles.js";
 
 // others
 import store from "./store.js";

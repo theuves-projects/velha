@@ -10,7 +10,7 @@ const Table = styled.div`
   grid-template-columns: repeat(3, auto);
   grid-auto-rows: auto;
   background-color: ${props => props.color};
-  position: fixed;
+  position: absolute;
   top: ${props => props.top}%;
   left: 50%;
   transform: translate(-50%, -50%);

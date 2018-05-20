@@ -5,7 +5,7 @@ import styled from "styled-components";
 import Player from "./Player/index.jsx";
 
 const Container = styled.div`
-  position: fixed;
+  position: absolute;
   ${props => props.position}: 0;
   top: ${props => props.top}%;
   transform: translateY(-50%);
