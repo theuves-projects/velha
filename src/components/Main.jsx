@@ -23,24 +23,40 @@ const Main = styled.div`
 `;
 
 class This extends Component {
-  selectCell = (index) => {
+  state = {
+    showAlert: true,
+    winner: null
+  }
+  selectCell = index => {
     const {current} = this.props.state.players;
     const player = this.props.state.players.symbol[current];
 
     this.props.play(player, index);
     this.props.addCell(index);
   }
+  closeAlert = () => {
+    // close the alert
+  }
+  reloadGame = () => {
+    // reload the game
+  }
+  endGame = winner => {
+    this.setState({
+      showAlert: !this.state.showAlert,
+      winner
+    });
+  }
   render() {
     return (
       <Main>
         <Scoreboard
           player="x"
-          score="10"
+          score={0}
           position="left"
         />
         <Scoreboard
           player="o"
-          score="10"
+          score={0}
           position="right"
         />
         <Table
@@ -50,7 +66,12 @@ class This extends Component {
           colors={{border: "#34495e", x: "#8e44ad", o: "#27ae60"}}
           onSelectCell={this.selectCell}
         />
-        <Alert />
+        <Alert
+          player={this.state.winner}
+          isOpen={this.state.showAlert}
+          onReload={this.reloadGame}
+          onClose={this.closeAlert}
+        />
       </Main>
     );
   }
