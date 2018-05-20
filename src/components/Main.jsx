@@ -44,7 +44,7 @@ class This extends Component {
           position="right"
         />
         <Table
-          size={400}
+          size={330}
           borders={6}
           cells={this.props.state.cells}
           colors={{border: "#34495e", x: "#8e44ad", o: "#27ae60"}}
