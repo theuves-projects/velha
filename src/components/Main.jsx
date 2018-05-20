@@ -19,6 +19,7 @@ const Main = styled.div`
   min-width: 500px;
   height: 100%;
   background-color: white;
+  overflow: hidden;
 `;
 
 class This extends Component {
@@ -43,8 +44,8 @@ class This extends Component {
           position="right"
         />
         <Table
-          size={324}
-          borders={5}
+          size={400}
+          borders={6}
           cells={this.props.state.cells}
           colors={{border: "#34495e", x: "#8e44ad", o: "#27ae60"}}
           onSelectCell={this.selectCell}
