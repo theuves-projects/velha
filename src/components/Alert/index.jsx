@@ -5,7 +5,7 @@ import Button from "./Button.jsx";
 
 const Container = styled.div`
   width: 100%;
-  height: 80px;
+  height: 15%;
   background-color: #34495e;
   text-align: center;
   position: absolute;
