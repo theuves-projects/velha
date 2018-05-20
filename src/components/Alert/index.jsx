@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "styled-components";
 
+import Button from "./Button.jsx";
+
 const Container = styled.div`
   width: 100%;
-  height: 100px;
+  height: 80px;
   background-color: #34495e;
+  text-align: center;
   position: absolute;
   left: 0;
   right: 0;
@@ -14,6 +17,7 @@ const Container = styled.div`
 function Alert() {
   return (
     <Container>
+      <Button />
     </Container>
   );
 }
