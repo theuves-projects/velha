@@ -6,9 +6,9 @@ import PlayerO from "./PlayerO.jsx";
 import PlayerX from "./PlayerX.jsx";
 
 const Animation = styled.div`
-  ${props => props.animate && "animation: show .15s;"}
+  ${props => props.animate && "animation: show-player .15s;"}
 
-  @keyframes show {
+  @keyframes show-player {
     from {
       transform: scale(6);
       opacity: 0;
