@@ -5,4 +5,8 @@ injectGlobal`
     margin: 0;
     background-color: #dfe6e9;
   }
+  * {
+    user-select: none;
+    cursor: normal;
+  }
 `;
