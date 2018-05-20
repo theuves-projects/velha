@@ -7,7 +7,7 @@ import Player from "../Player/index.jsx";
 
 const Container = styled.div`
   width: 100%;
-  height: ${props => props.open ? "90" : "15"}%;
+  height: ${props => props.open ? "90" : "17.5"}%;
   background-color: #34495e;
   transition: all .15s ease-out;
   text-align: center;
@@ -55,6 +55,7 @@ function This({
     >
       <Button
         value={isOpen ? "►" : "↻"}
+        tooltip={isOpen ? "FECHAR" : "REINICIAR"}
         onClick={() => isOpen ? onClose() : onReload()}
       />
 

@@ -25,7 +25,7 @@ const Main = styled.div`
 class This extends Component {
   state = {
     showAlert: true,
-    winner: null
+    winner: "x"
   }
   selectCell = index => {
     const {current} = this.props.state.players;
