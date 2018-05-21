@@ -74,14 +74,21 @@ class This extends Component {
       const {computer, user} = this.props.state.players;
       const cells = [].concat(computer, user);
       const free = this.rest(cells);
+
       const forUser = !!velha(user).proximas.length;
       const forComputer = !!velha(computer).proximas.length;
+
       const cellUser = this.findEmpty(velha(user).proximas, free);
       const cellComputer = this.findEmpty(velha(computer).proximas, free);
 
+      const randomNext = free[randomInt(free.length - 1)];
+      const logicNext = cellComputer || cellUser;
+
       const next = !forUser && !forComputer
-        ? free[randomInt(free.length - 1)]
-        : cellComputer || cellUser;
+        ? randomNext
+        : logicNext
+            ? logicNext
+            : randomNext;
 
       this.props.play("o", next);
       this.props.addCell(next);
