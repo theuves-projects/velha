@@ -125,12 +125,6 @@ class This extends Component {
       this.props.reset();
     }
   }
-  endGame = winner => {
-    this.setState({
-      showAlert: !this.state.showAlert,
-      winner
-    });
-  }
   render() {
     return (
       <Main>
