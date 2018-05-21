@@ -48,6 +48,11 @@ class This extends Component {
       return frees.includes(cell);
     });
   }
+  noWinner = () => {
+    const {computer, user} = this.props.state.players;
+
+    return computer.length + user.length >= 9;
+  }
   winner = () => {
     const {computer, user} = this.props.state.players;
     const computerIsWinner = velha(computer).fim;
@@ -94,15 +99,26 @@ class This extends Component {
       this.props.addCell(next);
 
       if (this.winner().has) {
-        this.setState({
+        return this.setState({
           showAlert: true,
           winner: this.winner().who
+        });
+      }
+      if (this.noWinner()) {
+        return this.setState({
+          showAlert: true,
+          winner: "xo"
         });
       }
     }, 200);
   }
   closeAlert = () => {
-    // close the alert
+    this.props.reset();
+
+    this.setState({
+      showAlert: false,
+      winner: null
+    });
   }
   reloadGame = () => {
     // reload the game
