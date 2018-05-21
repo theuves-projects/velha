@@ -121,7 +121,9 @@ class This extends Component {
     });
   }
   reloadGame = () => {
-    // reload the game
+    if (window.confirm("Tem certeza?")) {
+      this.props.reset();
+    }
   }
   endGame = winner => {
     this.setState({
