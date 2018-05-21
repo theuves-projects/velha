@@ -55,17 +55,20 @@ class This extends Component {
   }
   winner = () => {
     const {computer, user} = this.props.state.players;
+    const userSymbol = this.props.state.players.symbol.user;
+    const computerSymbol = this.props.state.players.symbol.computer;
     const computerIsWinner = velha(computer).fim;
     const userIsWinner = velha(user).fim;
     
     return {
       has: userIsWinner || computerIsWinner,
-      who: userIsWinner ? "x" : "o"
+      who: userIsWinner ? userSymbol : computerSymbol
     };
   }
   selectCell = index => {
     const {current} = this.props.state.players;
     const player = this.props.state.players.symbol[current];
+    const computerSymbol = this.props.state.players.symbol.computer;
 
     // Verifica se a casa já foi selecionada.
     if (this.props.state.cells.some(cell => cell.i === index && cell.name)) {
@@ -95,7 +98,7 @@ class This extends Component {
             ? logicNext
             : randomNext;
 
-      this.props.play("o", next);
+      this.props.play(computerSymbol, next);
       this.props.addCell(next);
 
       if (this.winner().has) {
