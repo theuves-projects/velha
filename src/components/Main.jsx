@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import velha from "theuves-velha";
 import styled from "styled-components";
+import randomInt from "random-int";
 
 // others
 import actions from "../actions.js";
@@ -27,12 +28,71 @@ class This extends Component {
     showAlert: false,
     winner: null
   }
+  rest = cells => {
+    const list = [
+      1, 2, 3,
+      4, 5, 6,
+      7, 8, 9
+    ];
+
+    return list.filter(item => {
+      return !cells.includes(item);
+    });
+  }
+  findEmpty = (cells, frees) => {
+    if (!cells) {
+      return false;
+    }
+
+    return cells.find(cell => {
+      return frees.includes(cell);
+    });
+  }
+  winner = () => {
+    const {computer, user} = this.props.state.players;
+    const computerIsWinner = velha(computer).fim;
+    const userIsWinner = velha(user).fim;
+    
+    return {
+      has: userIsWinner || computerIsWinner,
+      who: userIsWinner ? "x" : "o"
+    };
+  }
   selectCell = index => {
     const {current} = this.props.state.players;
     const player = this.props.state.players.symbol[current];
 
+    // Verifica se a casa já foi selecionada.
+    if (this.props.state.cells.some(cell => cell.i === index && cell.name)) {
+      return;
+    }
+
     this.props.play(player, index);
     this.props.addCell(index);
+
+    setTimeout(() => {
+      const {computer, user} = this.props.state.players;
+      const cells = [].concat(computer, user);
+      const free = this.rest(cells);
+      const forUser = !!velha(user).proximas.length;
+      const forComputer = !!velha(computer).proximas.length;
+      const cellUser = this.findEmpty(velha(user).proximas, free);
+      const cellComputer = this.findEmpty(velha(computer).proximas, free);
+
+      const next = !forUser && !forComputer
+        ? free[randomInt(free.length - 1)]
+        : cellComputer || cellUser;
+
+      this.props.play("o", next);
+      this.props.addCell(next);
+
+      if (this.winner().has) {
+        this.setState({
+          showAlert: true,
+          winner: this.winner().who
+        });
+      }
+    }, 200);
   }
   closeAlert = () => {
     // close the alert
