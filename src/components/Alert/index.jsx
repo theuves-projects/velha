@@ -43,6 +43,10 @@ const Text = styled.p`
   color: white;
 `;
 
+const Inline = styled.div`
+  display: inline-flex;
+`;
+
 function This({
   isOpen = false,
   onReload,
@@ -62,12 +66,29 @@ function This({
       <Message
         show={isOpen}
       >
-        <Player
-          name={player}
-          color="white"
-          border={8}
-          size={120}
-        />
+        {player === "xo" ? (
+          <Inline>
+            <Player
+              name="x"
+              color="white"
+              border={8}
+              size={90}
+            />
+            <Player
+              name="o"
+              color="white"
+              border={8}
+              size={90}
+            />
+          </Inline>
+        ) : (
+          <Player
+            name={player}
+            color="white"
+            border={8}
+            size={120}
+          />
+        )}
 
         <Text>VENCEU!</Text>
       </Message>
