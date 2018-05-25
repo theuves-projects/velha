@@ -129,13 +129,12 @@ class This extends Component {
   }
   changeSymbol = player => {
     return () => {
-      if (
-           this.props.state.cells.every(cell => !cell.name)
-        && this.props.state.players.symbol.user !== player
-      ) {
-        this.props.changeSymbol();
-      } else {
-        window.alert("Para isso, não deve haver jogadas.");
+      if (this.props.state.players.symbol.user !== player) {
+        if (this.props.state.cells.every(cell => !cell.name)) {
+          this.props.changeSymbol();
+        } else {
+          window.alert("Para isso, não deve haver jogadas.");
+        }
       }
     };
   }
