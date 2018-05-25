@@ -28,7 +28,7 @@ const Score = styled.div`
 function This({
   player,
   score,
-  top = 40,
+  top = 0,
   position = "left"
 }) {
   return (

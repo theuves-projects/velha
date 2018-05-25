@@ -7,7 +7,7 @@ import Player from "../Player/index.jsx";
 
 const Container = styled.div`
   width: 100%;
-  height: ${props => props.open ? "90" : "17.5"}%;
+  height: ${props => props.open ? "90" : props.height}%;
   background-color: #34495e;
   transition: all .15s ease-out;
   text-align: center;
@@ -48,6 +48,7 @@ const Inline = styled.div`
 `;
 
 function This({
+  height = 0,
   isOpen = false,
   onReload,
   onClose,
@@ -56,6 +57,7 @@ function This({
   return (
     <Container
       open={isOpen}
+      height={height}
     >
       <Button
         value={isOpen ? "►" : "↻"}

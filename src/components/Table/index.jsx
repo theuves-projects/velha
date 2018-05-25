@@ -19,7 +19,7 @@ const Table = styled.div`
 function This({
   cells,
   onSelectCell,
-  top = 40,
+  top = 0,
   borders: border = 3,
   colors = {},
   size = 300

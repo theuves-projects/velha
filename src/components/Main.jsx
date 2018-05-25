@@ -131,19 +131,25 @@ class This extends Component {
     }
   }
   render() {
+    var ALERT_HEIGHT = 18;
+    var ITEMS_TOP = (100 - ALERT_HEIGHT) / 2;
+
     return (
       <Main>
         <Scoreboard
+          top={ITEMS_TOP}
           player="x"
           score={0}
           position="left"
         />
         <Scoreboard
+          top={ITEMS_TOP}
           player="o"
           score={0}
           position="right"
         />
         <Table
+          top={ITEMS_TOP}
           size={330}
           borders={6}
           cells={this.props.state.cells}
@@ -151,6 +157,7 @@ class This extends Component {
           onSelectCell={this.selectCell}
         />
         <Alert
+          height={ALERT_HEIGHT}
           player={this.state.winner}
           isOpen={this.state.showAlert}
           onReload={this.reloadGame}
