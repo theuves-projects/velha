@@ -13,6 +13,13 @@ const Container = styled.div`
   display: inline-flex;
   flex-direction: column;
   text-align: center;
+
+  &:hover {
+    opacity: .95;
+  }
+  &:active {
+    opacity: 1;
+  }
 `;
 
 const PlayerContainer = styled.div`
