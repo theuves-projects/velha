@@ -134,6 +134,8 @@ class This extends Component {
         && this.props.state.players.symbol.user !== player
       ) {
         this.props.changeSymbol();
+      } else {
+        window.alert("Para isso, não deve haver jogadas.");
       }
     };
   }
