@@ -124,8 +124,10 @@ class This extends Component {
     });
   }
   reloadGame = () => {
-    if (window.confirm("Tem certeza?")) {
-      this.props.reset();
+    if (!this.props.state.cells.every(cell => !cell.name)) {
+      if (window.confirm("Tem certeza?")) {
+        this.props.reset();
+      }
     }
   }
   render() {
