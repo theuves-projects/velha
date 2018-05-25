@@ -129,7 +129,10 @@ class This extends Component {
   }
   changeSymbol = player => {
     return () => {
-      if (this.props.state.cells.every(cell => !cell.name)) {
+      if (
+           this.props.state.cells.every(cell => !cell.name)
+        && this.props.state.players.symbol.user !== player
+      ) {
         this.props.changeSymbol();
       }
     };

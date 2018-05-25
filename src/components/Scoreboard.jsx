@@ -8,6 +8,7 @@ const Container = styled.div`
   position: absolute;
   ${props => props.position}: 0;
   top: ${props => props.top}%;
+  cursor: pointer;
   transform: translateY(-50%);
   display: inline-flex;
   flex-direction: column;
