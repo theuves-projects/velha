@@ -82,13 +82,10 @@ class This extends Component {
       const {computer, user} = this.props.state.players;
       const cells = [].concat(computer, user);
       const free = this.rest(cells);
-
       const forUser = !!velha(user).proximas.length;
       const forComputer = !!velha(computer).proximas.length;
-
       const cellUser = this.findEmpty(velha(user).proximas, free);
       const cellComputer = this.findEmpty(velha(computer).proximas, free);
-
       const randomNext = free[randomInt(free.length - 1)];
       const logicNext = cellComputer || cellUser;
 
@@ -130,6 +127,13 @@ class This extends Component {
       }
     }
   }
+  changeSymbol = player => {
+    return () => {
+      if (this.props.state.cells.every(cell => !cell.name)) {
+        this.props.changeSymbol();
+      }
+    };
+  }
   render() {
     var ALERT_HEIGHT = 18;
     var ITEMS_TOP = (100 - ALERT_HEIGHT) / 2;
@@ -137,12 +141,16 @@ class This extends Component {
     return (
       <Main>
         <Scoreboard
+          main={this.props.state.players.symbol.user === "x"}
+          onClick={this.changeSymbol("x")}
           top={ITEMS_TOP}
           player="x"
           score={0}
           position="left"
         />
         <Scoreboard
+          main={this.props.state.players.symbol.user === "o"}
+          onClick={this.changeSymbol("o")}
           top={ITEMS_TOP}
           player="o"
           score={0}

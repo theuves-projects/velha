@@ -52,7 +52,12 @@ function playersReducer(state = initialState, action) {
         }
       });
     case RESET:
-      return initialState;
+      return Object.assign({}, initialState, {
+        symbol: {
+          user: state.symbol.user,
+          computer: state.symbol.computer
+        }
+      });
       break;
     default:
       return state;

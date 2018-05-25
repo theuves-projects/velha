@@ -26,6 +26,8 @@ const Score = styled.div`
 `;
 
 function This({
+  main,
+  onClick,
   player,
   score,
   top = 0,
@@ -33,13 +35,14 @@ function This({
 }) {
   return (
     <Container
+      onClick={onClick}
       position={position}
       top={top}
     >
       <PlayerContainer>
         <Player
           name={player}
-          color="white"
+          color={main ? "#fbc531" : "white"}
           size={24}
         />
       </PlayerContainer>
