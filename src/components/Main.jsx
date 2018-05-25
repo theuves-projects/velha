@@ -141,7 +141,7 @@ class This extends Component {
         if (this.props.state.cells.every(cell => !cell.name)) {
           this.props.changeSymbol();
         } else {
-          window.alert("Para isso, não deve haver jogadas.");
+          window.alert("Termine o jogo, antes disso.");
         }
       }
     };
