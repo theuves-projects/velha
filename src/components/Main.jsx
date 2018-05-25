@@ -99,16 +99,24 @@ class This extends Component {
       this.props.addCell(next);
 
       if (this.winner().has) {
-        return this.setState({
+        this.setState({
           showAlert: true,
           winner: this.winner().who
         });
+
+        const isUser = this.props.state.players.symbol.user === this.winner().who;
+        const player = isUser ? "user" : "computer";
+
+        this.props.addScore(player);
       }
       if (this.noWinner()) {
-        return this.setState({
+        this.setState({
           showAlert: true,
           winner: "xo"
         });
+
+        this.props.addScore("user");
+        this.props.addScore("computer");
       }
     }, 150);
   }
@@ -149,7 +157,7 @@ class This extends Component {
           onClick={this.changeSymbol("x")}
           top={ITEMS_TOP}
           player="x"
-          score={0}
+          score={this.props.state.players.scores.user}
           position="left"
         />
         <Scoreboard
@@ -157,7 +165,7 @@ class This extends Component {
           onClick={this.changeSymbol("o")}
           top={ITEMS_TOP}
           player="o"
-          score={0}
+          score={this.props.state.players.scores.computer}
           position="right"
         />
         <Table
