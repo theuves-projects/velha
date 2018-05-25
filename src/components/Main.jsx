@@ -110,7 +110,7 @@ class This extends Component {
           winner: "xo"
         });
       }
-    }, 200);
+    }, 150);
   }
   closeAlert = () => {
     this.props.reset();
