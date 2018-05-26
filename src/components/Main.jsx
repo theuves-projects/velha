@@ -20,8 +20,21 @@ const Main = styled.div`
   max-width: 750px;
   min-width: 500px;
   height: 100%;
-  background-color: white;
   overflow: hidden;
+  background-color: white;
+
+  animation: show-main 0.15s;
+
+  @keyframes show-main {
+    from {
+      transform: scale(3);
+      opacity: 0;
+    }
+    to {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
 `;
 
 class This extends Component {
