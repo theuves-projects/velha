@@ -95,8 +95,13 @@ function This({
             size={120}
           />
         )}
-
-        <Text>{player === "xo" ? "DEU VELHA" : "VENCEU"}!</Text>
+        <Text>{do {
+          if (player === "xo") {
+            "DEU VELHA!";
+          } else {
+            "VENCEU!"
+          }
+        }}</Text>
       </Message>
     </Container>
   );
