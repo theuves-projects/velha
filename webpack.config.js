@@ -1,3 +1,6 @@
+const path = require("path");
+const htmlWebpackPlugin = require("html-webpack-plugin");
+
 module.exports = {
   module: {
     rules: [
@@ -8,5 +11,13 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new htmlWebpackPlugin({
+      title: "Jogo da Velha",
+      inject: false,
+      hash: true,
+      template: path.resolve(__dirname, "src/template.ejs")
+    })
+  ]
 }

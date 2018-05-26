@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <% htmlWebpackPlugin.files.js.forEach(src => { %>
+      <script src="<%= src %>"></script>
+    <% }); %>
+  </body>
+</html>
