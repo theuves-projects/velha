@@ -23,12 +23,12 @@ const Main = styled.div`
   overflow: hidden;
   background-color: white;
 
-  animation: show-main 0.15s;
+  animation: show-main .15s;
 
   @keyframes show-main {
     from {
-      transform: scale(3);
-      opacity: 0;
+      transform: scale(1.05);
+      opacity: .5;
     }
     to {
       transform: scale(1);
