@@ -39,6 +39,7 @@ const Message = styled.div`
 const Text = styled.p`
   padding: 0;
   margin-top: 20px;
+  white-space: nowrap;
   font-size: 3em;
   color: white;
 `;
@@ -92,7 +93,7 @@ function This({
           />
         )}
 
-        <Text>VENCEU!</Text>
+        <Text>{player === "xo" ? "DEU VELHA" : "VENCEU"}!</Text>
       </Message>
     </Container>
   );
