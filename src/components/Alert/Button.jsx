@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
+// others
+import * as theme from "../../theme.js";
+
 const Container = styled.div`
   display: inline-block;
   position: relative;
@@ -14,7 +17,7 @@ const Button = styled.button`
   border-radius: 100px;
   border: none;
   outline: none;
-  background-color: #e67e22;
+  background-color: ${theme.orange};
   color: white;
   transform: translateY(-50%);
   filter: contrast(1);

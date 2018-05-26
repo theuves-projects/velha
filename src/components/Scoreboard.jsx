@@ -1,6 +1,9 @@
 import React from "react";
 import styled from "styled-components";
 
+// others
+import * as theme from "../theme.js";
+
 // components
 import Player from "./Player/index.jsx";
 
@@ -23,14 +26,14 @@ const Container = styled.div`
 `;
 
 const PlayerContainer = styled.div`
-  background-color: #9b59b6;
   padding: 10px;
+  background-color: ${theme.purple};
 `;
 
 const Score = styled.div`
-  font-size: large;
   padding: 5px 0;
-  background-color: #fbc531;
+  font-size: large;
+  background-color: ${theme.yellow};
 `;
 
 function This({
@@ -50,7 +53,7 @@ function This({
       <PlayerContainer>
         <Player
           name={player}
-          color={main ? "#fbc531" : "white"}
+          color={main ? theme.yellow : "white"}
           size={24}
         />
       </PlayerContainer>

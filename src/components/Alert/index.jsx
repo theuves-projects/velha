@@ -1,6 +1,9 @@
 import React, {Component} from "react";
 import styled from "styled-components";
 
+// others
+import * as theme from "../../theme.js";
+
 // components
 import Button from "./Button.jsx";
 import Player from "../Player/index.jsx";
@@ -8,7 +11,7 @@ import Player from "../Player/index.jsx";
 const Container = styled.div`
   width: 100%;
   height: ${props => props.open ? 100 - props.height / 2 : props.height}%;
-  background-color: #34495e;
+  background-color: ${theme.blue};
   transition: all .15s ease-out;
   text-align: center;
   position: absolute;

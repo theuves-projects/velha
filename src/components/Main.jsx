@@ -7,6 +7,7 @@ import randomInt from "random-int";
 
 // others
 import actions from "../actions.js";
+import * as theme from "../theme.js"
 
 // components
 import Table from "./Table/index.jsx";
@@ -170,7 +171,7 @@ class This extends Component {
           size={330}
           borders={6}
           cells={this.props.state.cells}
-          colors={{border: "#34495e", x: "#8e44ad", o: "#27ae60"}}
+          colors={{border: theme.blue, x: theme.purple, o: theme.green}}
           onSelectCell={this.selectCell}
         />
         <Alert
