@@ -114,9 +114,6 @@ class This extends Component {
           showAlert: true,
           winner: "xo"
         });
-
-        this.props.addScore("user");
-        this.props.addScore("computer");
       }
     }, 150);
   }
