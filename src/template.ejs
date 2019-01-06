@@ -6,6 +6,7 @@
   </head>
   <body>
     <div id="root"></div>
+
     <% htmlWebpackPlugin.files.js.forEach((source) => { %>
       <script src="<%= source %>"></script>
     <% }); %>

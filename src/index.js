@@ -1,23 +1,15 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import {Provider} from "react-redux";
+import React, { Fragment } from 'react'
+import ReactDOM from 'react-dom'
 
-// components
-import Main from "./components/Main.jsx";
-import "./globalStyles.js";
+import Table from './components/Table.js'
 
-// others
-import store from "./store.js";
-
-function App() {
-  return (
-    <Provider store={store}>
-      <Main />
-    </Provider>
-  );
-}
+const App = () => (
+  <Fragment>
+    
+  </Fragment>
+)
 
 ReactDOM.render(
   <App />,
-  document.getElementById("root")
-);
+  document.getElementById('root')
+)
