@@ -4,20 +4,20 @@ import styled from 'styled-components'
 const Grid = styled.div`
   display: inline-grid;
   grid-template-columns: auto auto auto;
-  grid-gap: ${props => props.width};
+  grid-gap: ${props => props.width}px;
   background-color: ${props => props.color};
 `
 
 const GridItem = styled.div`
-  width: ${props => props.width};
-  height: ${props => props.width};
+  width: ${props => props.width}px;
+  height: ${props => props.width}px;
   background-color: ${props => props.color};
 `
 
 const Table = ({
-  cellWidth = '1px',
+  cellWidth = 1,
   cellColor = 'white',
-  borderWidth = '1px',
+  borderWidth = 1,
   borderColor = 'black'
 }) => (
   <Grid
