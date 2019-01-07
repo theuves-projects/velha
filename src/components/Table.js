@@ -1,14 +1,14 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const Grid = styled.div`
+const StyledGrid = styled.div`
   display: inline-grid;
   grid-template-columns: auto auto auto;
   grid-gap: ${props => props.width}px;
   background-color: ${props => props.color};
 `
 
-const GridItem = styled.div`
+const StyledGridItem = styled.div`
   width: ${props => props.width}px;
   height: ${props => props.width}px;
   background-color: ${props => props.color};
@@ -20,18 +20,18 @@ const Table = ({
   borderWidth = 1,
   borderColor = 'black'
 }) => (
-  <Grid
+  <StyledGrid
     width={borderWidth}
     color={borderColor}
   >
     {Array.from(Array(9)).map((_, index) => (
-      <GridItem
+      <StyledGridItem
         key={index}
         width={cellWidth}
         color={cellColor}
       />
     ))}
-  </Grid>
+  </StyledGrid>
 )
 
 export default Table

@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import Player from './Player.js'
 
-const Container = styled.div`display: inline-block`
+const StyledContainer = styled.div`display: inline-block`
 
-const PlayerContainer = styled.div`
+const StyledPlayerContainer = styled.div`
   padding: 10px 10px;
   background-color: black;
 
@@ -14,7 +14,7 @@ const PlayerContainer = styled.div`
   }
 `
 
-const ScoreContainer = styled.div`
+const StyledScoreContainer = styled.div`
   padding: 10px 10px;
   font-size: ${props => props.width / 2}px
   font-weight: bold;
@@ -28,8 +28,8 @@ const Scoreboard = ({
   playerName,
   score = 0
 }) => (
-  <Container>
-    <PlayerContainer
+  <StyledContainer>
+    <StyledPlayerContainer
       width={width}
     >
       <Player
@@ -38,13 +38,13 @@ const Scoreboard = ({
         lineWidth={width / 8}
         color='white'
       />
-    </PlayerContainer>
-    <ScoreContainer
+    </StyledPlayerContainer>
+    <StyledScoreContainer
       width={width}
     >
       {score}
-    </ScoreContainer>
-  </Container>
+    </StyledScoreContainer>
+  </StyledContainer>
 )
 
 export default Scoreboard

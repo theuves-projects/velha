@@ -4,8 +4,9 @@ import styled from 'styled-components'
 // Calculate the hypotenuse of an isosceles triangle.
 const calcHyp = (leg) => Math.sqrt(leg ** 2 * 2)
 
-const PlayerX = styled.div`
+const StyledPlayerX = styled.div`
   position: relative;
+  display: inline-block;
   width: ${props => props.width || 1}px;
   height: ${props => props.width || 1}px;
   background-color: transparent;
@@ -34,7 +35,8 @@ const PlayerX = styled.div`
   }
 `
 
-const PlayerO = styled.div`
+const StyledPlayerO = styled.div`
+  display: inline-block;
   width: ${props => props.width || 1}px;
   height: ${props => props.width || 1}px;
   box-sizing: border-box;
@@ -48,10 +50,10 @@ const PlayerO = styled.div`
 const Player = ({playerName, ...props}) => {
   switch (playerName) {
     case 'x':
-      return <PlayerX {...props} />
+      return <StyledPlayerX {...props} />
       break
     case 'o':
-      return <PlayerO {...props} />
+      return <StyledPlayerO {...props} />
       break
     default:
       throw new Error('Invalid player name')
