@@ -1,5 +1,6 @@
 import { handleActions } from 'redux-actions'
-import { finish, play, autoPlay } from '../actions/game.js'
+import { finish, play, autoPlay } from '../actions/game'
+import { isFinished, getNextState, whoWon } from 'tttai'
 
 const defaultState = {
   board:Array(9).fill(null),
