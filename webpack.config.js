@@ -14,7 +14,6 @@ module.exports = {
   },
   plugins: [
     new htmlWebpackPlugin({
-      title: "Jogo da Velha",
       inject: false,
       hash: true,
       template: path.resolve(__dirname, "src/template.ejs")
