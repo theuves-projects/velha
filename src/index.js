@@ -32,6 +32,7 @@ const StyledPage = styled.div`
   width: 700px;
   height: 100%;
   overflow: hidden;
+  box-shadow: 0 0 30px 0 #ddd;
   background-color: white;
 `
 
