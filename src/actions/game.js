@@ -1,6 +1,5 @@
 import { createAction } from 'redux-actions'
 
-export const finish = createAction('finish')
+export const restart = createAction('restart')
 export const play = createAction('play')
-export const autoPlay = createAction('auto play')
 export const togglePlayer = createAction('toggle player')
