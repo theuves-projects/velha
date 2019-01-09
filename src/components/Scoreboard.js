@@ -16,7 +16,7 @@ const StyledPlayerContainer = styled.div`
 
 const StyledScoreContainer = styled.div`
   padding: 10px 10px;
-  font-size: ${props => props.width / 2}px
+  font-size: ${props => props.width / 2}px;
   font-weight: bold;
   text-align: center;
   color: black;
