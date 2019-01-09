@@ -47,9 +47,7 @@ export default handleActions(
                 : value
             })
           })(),
-          isFinished: (() => {
-            return isFinished(state.board)
-          })(),
+          isFinished: isFinished(state.board),
           winner: isFinished(state.board) ? whoWon(state.board) : null,
           players: {
             human: {
