@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import Player from './Player'
 
 const StyledGrid = styled.div`
   display: inline-grid;
@@ -9,27 +10,59 @@ const StyledGrid = styled.div`
 `
 
 const StyledGridItem = styled.div`
+  position: relative;
   width: ${props => props.width}px;
   height: ${props => props.width}px;
   background-color: ${props => props.color};
+
+  > div {
+    position: absolute;
+    animation: show .15s;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @keyframes show {
+      from {
+        transform: translate(-50%, -50%) scale(2);
+      }
+      to {
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+  }
 `
 
 const Board = ({
-  cellWidth = 1,
-  cellColor = 'white',
-  borderWidth = 1,
-  borderColor = 'black'
+  board,
+  onClick,
+  cellWidth,
+  cellColor,
+  borderWidth,
+  borderColor
 }) => (
   <StyledGrid
     width={borderWidth}
     color={borderColor}
   >
-    {Array.from(Array(9)).map((_, index) => (
+    {board.map((playerName, index) => (
       <StyledGridItem
         key={index}
         width={cellWidth}
         color={cellColor}
-      />
+        onClick={() => onClick(index)}
+      >
+        {playerName ? (
+          <Player
+            playerName={playerName}
+            lineWidth={borderWidth}
+            width={cellWidth - 20}
+            color='red'
+          />
+        ) : (
+          null
+        )}
+      </StyledGridItem>
     ))}
   </StyledGrid>
 )
