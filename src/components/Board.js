@@ -19,6 +19,7 @@ const StyledGridItem = styled.div`
   > div {
     position: absolute;
     animation: show-player .15s;
+    z-index: 9;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
