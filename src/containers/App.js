@@ -51,8 +51,6 @@ class App extends Component {
     if (this.props.game.isFinished) return
     if (this.props.game.board[index]) return window.alert('Invalid!')
 
-    console.log(this.props.game.players)
-
     // For the human.
     this.props.actions.play({
       index,
