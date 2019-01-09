@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Player from './Player'
+import { WISTERIA, NEPHRITIS } from '../colors'
 
 const StyledGrid = styled.div`
   display: inline-grid;
@@ -57,11 +58,7 @@ const Board = ({
             playerName={playerName}
             lineWidth={borderWidth}
             width={cellWidth - 20}
-            color={
-              playerName === 'x'
-                ? '#9b59b6'
-                : '#e67e22'
-            }
+            color={playerName === 'x' ? WISTERIA : NEPHRITIS}
           />
         ) : (
           null
