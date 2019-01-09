@@ -1,12 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import Player from './Player'
+import { WISTERIA, SUN_FLOWER } from '../colors'
 
 const StyledContainer = styled.div`display: inline-block`
 
 const StyledPlayerContainer = styled.div`
   padding: 10px 10px;
-  background-color: black;
+  background-color: ${WISTERIA};
 
   // Centralize the player icon
   div {
@@ -20,7 +21,7 @@ const StyledScoreContainer = styled.div`
   font-weight: bold;
   text-align: center;
   color: black;
-  background-color: #ccc;
+  background-color: ${SUN_FLOWER};
 `
 
 const Scoreboard = ({
@@ -30,9 +31,7 @@ const Scoreboard = ({
   score = 0
 }) => (
   <StyledContainer>
-    <StyledPlayerContainer
-      width={width}
-    >
+    <StyledPlayerContainer width={width}>
       <Player
         playerName={playerName}
         width={width - 20}
@@ -40,9 +39,7 @@ const Scoreboard = ({
         color={playerColor}
       />
     </StyledPlayerContainer>
-    <StyledScoreContainer
-      width={width}
-    >
+    <StyledScoreContainer width={width}>
       {score}
     </StyledScoreContainer>
   </StyledContainer>

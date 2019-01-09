@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import styled from 'styled-components'
+import lightness from 'lightness'
+import { MIDNIGHT_BLUE, ORANGE } from '../colors'
 import Player from './Player'
 
 const StyledContainer = styled.div`
@@ -8,7 +10,7 @@ const StyledContainer = styled.div`
   transition: .25s linear;
   height: ${props => props.isOpen ? 100 - props.height : props.height}%;
   bottom: 0;
-  background-color: #ddd;
+  background-color: ${MIDNIGHT_BLUE};
 `
 
 const StyledButton = styled.button`
@@ -23,11 +25,15 @@ const StyledButton = styled.button`
   transform: translate(-50%, -50%);
   transition: .15s linear;
   color: white;
-  background-color: black;
+  background-color: ${ORANGE};
 
   &:hover {
     transform: translate(-50%, -50%) scale(1.15);
-    background-color: #222;
+    background-color: ${lightness(ORANGE, -5)};
+  }
+  &:active {
+    transform: translate(-50%, -50%) scale(1.1);
+    background-color: ${ORANGE}
   }
   .material-icons {
     font-size: ${props => props.width / 2}px;
@@ -52,10 +58,11 @@ const StyledMessage = styled.div`
 `
 
 const StyledMessageText = styled.div`
-  font-family: Pacifico, "Comic Sans MS", cursive;
   margin-top: 20px;
   text-align: center;
+  font-family: Pacifico, "Comic Sans MS", cursive;
   font-size: 30px;
+  color: white;
 `
 
 const Winner = ({ name }) => (
@@ -63,7 +70,7 @@ const Winner = ({ name }) => (
     playerName={name}
     width={150}
     lineWidth={25}
-    color='black'
+    color='white'
   />
 )
 

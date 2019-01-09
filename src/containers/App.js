@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import * as actions from '../actions/game'
 import { bindActionCreators } from 'redux'
 import styled from 'styled-components'
+import { SUN_FLOWER, MIDNIGHT_BLUE } from '../colors'
 import Scoreboard from '../components/Scoreboard'
 import Board from '../components/Board'
 import Alert from '../components/Alert'
@@ -47,6 +48,9 @@ const StyledBoard = styled.div`
 `
 
 class App extends Component {
+  everyIsEmpty = () => {
+    return this.props.game.board.every((value) => value === null)
+  }
   play = (index) => {
     if (this.props.game.isFinished) return
     if (this.props.game.board[index]) return window.alert('Invalid!')
@@ -66,10 +70,7 @@ class App extends Component {
   }
   togglePlayer = (name) => {
     if (this.props.game.players.human.name === name) return
-
-    if (!this.props.game.board.every((value) => value === null)) {
-      return window.alert('Finish the game before.')
-    }
+    if (!this.everyIsEmpty()) return window.alert('Finish the game before.')
 
     this.props.actions.togglePlayer()
   }
@@ -77,9 +78,7 @@ class App extends Component {
     this.props.actions.restart()
   }
   restart = () => {
-    if (this.props.game.board.every((value) => value === null)) {
-      return
-    }
+    if (this.everyIsEmpty()) return window.alert('This is not necessary.')
 
     if (window.confirm('Are you sure?')) {
       this.props.actions.restart()
@@ -92,7 +91,7 @@ class App extends Component {
           <Scoreboard
             width={50}
             playerName='x'
-            playerColor={this.props.game.players.human.name === 'x' ? '#8bc34a' : undefined}
+            playerColor={this.props.game.players.human.name === 'x' ? SUN_FLOWER : undefined}
             score={this.props.game.players.human.name === 'x'
               ? this.props.game.players.human.victories
               : this.props.game.players.computer.victories
@@ -103,7 +102,7 @@ class App extends Component {
           <Scoreboard
             width={50}
             playerName='o'
-            playerColor={this.props.game.players.human.name === 'o' ? '#8bc34a' : undefined}
+            playerColor={this.props.game.players.human.name === 'o' ? SUN_FLOWER : undefined}
             score={this.props.game.players.human.name === 'o'
               ? this.props.game.players.human.victories
               : this.props.game.players.computer.victories
@@ -117,7 +116,7 @@ class App extends Component {
             cellWidth={110}
             cellColor='white'
             borderWidth={8}
-            borderColor='#2c3e50'
+            borderColor={MIDNIGHT_BLUE}
           />
         </StyledBoard>
         <Alert
