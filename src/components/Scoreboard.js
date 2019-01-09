@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Player from './Player.js'
+import Player from './Player'
 
 const StyledContainer = styled.div`display: inline-block`
 
