@@ -5,6 +5,7 @@ import Player from './Player'
 const StyledContainer = styled.div`
   position: absolute;
   width: 100%;
+  transition: .25s linear;
   height: ${props => props.isOpen ? 100 - props.height : props.height}%;
   bottom: 0;
   background-color: #ddd;
@@ -37,11 +38,21 @@ const StyledMessage = styled.div`
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
   display: ${props => props.isOpen ? 'block' : 'none'};
+  animation: show-message .5s forwards;
+
+  @keyframes show-message {
+    from {
+      transform: translate(-50%, 100%);
+    }
+    to {
+      transform: translate(-50%, -50%);
+    }
+  }
 `
 
 const StyledMessageText = styled.div`
+  font-family: Pacifico, "Comic Sans MS", cursive;
   margin-top: 20px;
   text-align: center;
   font-size: 30px;
