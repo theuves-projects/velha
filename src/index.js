@@ -16,11 +16,13 @@ const StyledGlobal = createGlobalStyle`
     margin: 0;
     padding: 0;
     font-family: Roboto, Arial, Helvetica, sans-serif;
+    background-color: #eee;
   }
 `
 
 const StyledGoogleFonts = importGoogleFonts(createGlobalStyle, null, [
   'Roboto',
+  'Pacifico',
   'Material Icons'
 ])
 
@@ -29,6 +31,8 @@ const StyledPage = styled.div`
   margin: 0 auto;
   width: 700px;
   height: 100%;
+  overflow: hidden;
+  background-color: white;
 `
 
 ReactDOM.render(
