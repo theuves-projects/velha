@@ -17,12 +17,12 @@ const StyledGridItem = styled.div`
 
   > div {
     position: absolute;
-    animation: show .15s;
+    animation: show-player .15s;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 
-    @keyframes show {
+    @keyframes show-player {
       from {
         transform: translate(-50%, -50%) scale(2);
       }
@@ -57,7 +57,11 @@ const Board = ({
             playerName={playerName}
             lineWidth={borderWidth}
             width={cellWidth - 20}
-            color='red'
+            color={
+              playerName === 'x'
+                ? '#9b59b6'
+                : '#e67e22'
+            }
           />
         ) : (
           null
