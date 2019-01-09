@@ -71,10 +71,12 @@ class Alert extends Component {
   render() {
     const {
       isOpen,
-      onClickButton,
+      onClickButtonOpened,
+      onClickButtonClosed,
       containerHeight,
       buttonWidth,
-      buttonIcon,
+      buttonIconOpened,
+      buttonIconClosed,
       winner
     } = this.props
 
@@ -83,8 +85,13 @@ class Alert extends Component {
         isOpen={isOpen}
         height={containerHeight}
       >
-        <StyledButton width={buttonWidth}>
-          <i className="material-icons">{buttonIcon}</i>
+        <StyledButton
+          width={buttonWidth}
+          onClick={isOpen ? onClickButtonOpened : onClickButtonClosed}
+        >
+          <i className="material-icons">
+            {isOpen ? buttonIconOpened : buttonIconClosed}
+          </i>
         </StyledButton>
         <StyledMessage isOpen={isOpen}>
           {winner ? (
