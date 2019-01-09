@@ -26,6 +26,7 @@ const StyledScoreContainer = styled.div`
 const Scoreboard = ({
   width,
   playerName,
+  playerColor = 'white',
   score = 0
 }) => (
   <StyledContainer>
@@ -36,7 +37,7 @@ const Scoreboard = ({
         playerName={playerName}
         width={width - 20}
         lineWidth={width / 8}
-        color='white'
+        color={playerColor}
       />
     </StyledPlayerContainer>
     <StyledScoreContainer
