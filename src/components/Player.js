@@ -7,8 +7,8 @@ const calcHyp = (leg) => Math.sqrt(leg ** 2 * 2)
 const StyledPlayerX = styled.div`
   position: relative;
   display: inline-block;
-  width: ${props => props.width || 1}px;
-  height: ${props => props.width || 1}px;
+  width: ${props => props.width}px;
+  height: ${props => props.width}px;
   background-color: transparent;
   
   &::before,
@@ -16,12 +16,12 @@ const StyledPlayerX = styled.div`
     content: "";
     position: absolute;
     display: block;
-    width: ${props => calcHyp(props.width || 1) - props.lineWidth || 1}px;
+    width: ${props => calcHyp(props.width) - props.lineWidth}px;
     height: ${props => props.lineWidth}px;
     left: 50%;
     top: 50%;
     transform-origin: left top;
-    background-color: ${props => props.color || 'black'};
+    background-color: ${props => props.color};
   }
   &::before {
     /* From left to right.
@@ -47,13 +47,25 @@ const StyledPlayerO = styled.div`
   background-color: transparent;
 ` 
 
+const StyledContainer = styled.div`
+  display: inline-block;
+`
+
 const Player = ({playerName, ...props}) => {
   switch (playerName) {
     case 'x':
-      return <StyledPlayerX {...props} />
+      return (
+        <StyledContainer>
+          <StyledPlayerX {...props} />
+        </StyledContainer>
+      )
       break
     case 'o':
-      return <StyledPlayerO {...props} />
+      return (
+        <StyledContainer>
+          <StyledPlayerO {...props} />
+        </StyledContainer>
+      )
       break
     default:
       throw new Error('Invalid player name')
