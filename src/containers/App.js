@@ -8,11 +8,11 @@ import Scoreboard from '../components/Scoreboard'
 import Board from '../components/Board'
 import Alert from '../components/Alert'
 
-const StyledScoreboardX = styled.div`
+const StyledScoreboard = styled.div`
   position: absolute;
   top: 45%;
-  left: 0;
   transform: translateY(-50%);
+  cursor: pointer;
 
   &::after {
     content: "";
@@ -24,20 +24,12 @@ const StyledScoreboardX = styled.div`
   }
 `
 
-const StyledScoreboardO = styled.div`
-  position: absolute;
-  top: 45%;
-  right: 0;
-  transform: translateY(-50%);
+const StyledScoreboardX = styled(StyledScoreboard)`
+  left: 0;
+`
 
-  &::after {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
+const StyledScoreboardO = styled(StyledScoreboard)`
+  right: 0;
 `
 
 const StyledBoard = styled.div`
