@@ -14,7 +14,7 @@ const StyledGridItem = styled.div`
   background-color: ${props => props.color};
 `
 
-const Table = ({
+const Board = ({
   cellWidth = 1,
   cellColor = 'white',
   borderWidth = 1,
@@ -34,4 +34,4 @@ const Table = ({
   </StyledGrid>
 )
 
-export default Table
+export default Board
