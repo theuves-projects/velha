@@ -1,4 +1,5 @@
 import { handleActions } from 'redux-actions'
+import assignDeep from 'assign-deep'
 import * as actions from '../actions/game'
 import { isFinished, getNextState, whoWon } from 'tttai'
 
@@ -22,15 +23,14 @@ export default handleActions(
   new Map([
     [
       actions.restart,
-      (state, action) => ({
-        ...state,
+      (state, action) => assignDeep({}, state, {
         board: Array(9).fill(null),
         isFinished: false,
         winner: null
       })
     ], [
       actions.play,
-      (state, action) => ({
+      (state, action) => assignDeep({}, state, {
           ...state,
           board: (() => {
             if (action.payload.index === undefined) {
@@ -58,11 +58,15 @@ export default handleActions(
       })
     ], [
       actions.togglePlayer,
-      (state, action) => ({
+      (state, action) => assignDeep({}, state, {
         ...state,
         players: {
-          human: state.players.computer,
-          computer: state.players.human
+          human: {
+            name: state.players.computer.name
+          },
+          computer: {
+            name: state.players.human.name
+          }
         }
       })
     ]
