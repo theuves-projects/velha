@@ -3,14 +3,12 @@ const htmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
   module: {
-    rules: [
-      {
-        test: /\.jsx?$/,
-        use: {
-          loader: "babel-loader"
-        }
+    rules: [{
+      test: /\.jsx?$/,
+      use: {
+        loader: "babel-loader"
       }
-    ]
+    }]
   },
   plugins: [
     new htmlWebpackPlugin({
