@@ -2,10 +2,6 @@ import { handleActions } from 'redux-actions'
 import * as actions from '../actions/game'
 import { isFinished, getNextState, whoWon } from 'tttai'
 
-function countVictories(isWinner,) {
-
-}
-
 const defaultState = {
   board: Array(9).fill(null),
   isFinished: false,
