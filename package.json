@@ -2,15 +2,14 @@
   "name": "velha",
   "version": "0.0.0",
   "private": true,
-  "description": "",
-  "main": "index.js",
+  "description": "A simple tic-tac-toe game built with React.js.",
   "scripts": {
     "watch": "webpack -w --mode development",
     "test": "jest --colors",
     "deploy": "gh-pages -d dist"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Matheus Alves",
+  "license": "MIT",
   "devDependencies": {
     "assign-deep": "^1.0.0",
     "babel-core": "^6.26.3",
