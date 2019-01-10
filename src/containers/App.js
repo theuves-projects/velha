@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import * as actions from '../actions/game'
 import { bindActionCreators } from 'redux'
 import styled from 'styled-components'
-import { SUN_FLOWER, MIDNIGHT_BLUE } from '../colors'
+import { SUN_FLOWER, MIDNIGHT_BLUE, ORANGE  } from '../colors'
 import Scoreboard from '../components/Scoreboard'
 import Board from '../components/Board'
 import Alert from '../components/Alert'
@@ -115,11 +115,13 @@ class App extends Component {
           isOpen={this.props.game.isFinished}
           onClickButtonOpened={this.start}
           onClickButtonClosed={this.restart}
-          winner={this.props.game.winner}
           containerHeight={10}
-          buttonWidth={65}
+          containerColor={MIDNIGHT_BLUE}
           buttonIconOpened='play_arrow'
           buttonIconClosed='refresh'
+          buttonWidth={65}
+          buttonColor={ORANGE}
+          winner={this.props.game.winner}
         />
       </Fragment>
     )

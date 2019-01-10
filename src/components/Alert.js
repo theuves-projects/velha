@@ -1,7 +1,6 @@
-import React, { Component, Fragment } from 'react'
+import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import lightness from 'lightness'
-import { MIDNIGHT_BLUE, ORANGE } from '../colors'
 import Player from './Player'
 
 const StyledContainer = styled.div`
@@ -10,7 +9,7 @@ const StyledContainer = styled.div`
   transition: .25s linear;
   height: ${props => props.isOpen ? 100 - props.height : props.height}%;
   bottom: 0;
-  background-color: ${MIDNIGHT_BLUE};
+  background-color: ${props => props.color};
 `
 
 const StyledButton = styled.button`
@@ -25,15 +24,15 @@ const StyledButton = styled.button`
   transform: translate(-50%, -50%);
   transition: .15s linear;
   color: white;
-  background-color: ${ORANGE};
+  background-color: ${props => props.color};
 
   &:hover {
     transform: translate(-50%, -50%) scale(1.15);
-    background-color: ${lightness(ORANGE, -5)};
+    background-color: ${props => lightness(props.color, -5)};
   }
   &:active {
     transform: translate(-50%, -50%) scale(1.1);
-    background-color: ${ORANGE}
+    background-color: ${props => props.color}
   }
   .material-icons {
     font-size: ${props => props.width / 2}px;
@@ -60,7 +59,7 @@ const StyledMessage = styled.div`
 const StyledMessageText = styled.div`
   margin-top: 20px;
   text-align: center;
-  font-family: Pacifico, "Comic Sans MS", cursive;
+  font-family: Pacifico, 'Comic Sans MS', cursive;
   font-size: 30px;
   color: white;
 `
@@ -74,46 +73,44 @@ const Winner = ({ name }) => (
   />
 )
 
-class Alert extends Component {
-  render() {
-    const {
-      isOpen,
-      onClickButtonOpened,
-      onClickButtonClosed,
-      containerHeight,
-      buttonWidth,
-      buttonIconOpened,
-      buttonIconClosed,
-      winner
-    } = this.props
-
-    return (
-      <StyledContainer
-        isOpen={isOpen}
-        height={containerHeight}
-      >
-        <StyledButton
-          width={buttonWidth}
-          onClick={isOpen ? onClickButtonOpened : onClickButtonClosed}
-        >
-          <i className="material-icons">
-            {isOpen ? buttonIconOpened : buttonIconClosed}
-          </i>
-        </StyledButton>
-        <StyledMessage isOpen={isOpen}>
-          {winner ? (
-            <Winner name={winner} />
-          ) : (
-            <Fragment>
-              <Winner name='x' />
-              <Winner name='o' />
-            </Fragment>
-          )}
-          <StyledMessageText>WIN!</StyledMessageText>
-        </StyledMessage>
-      </StyledContainer>
-    )
-  }
-}
+const Alert = ({
+  isOpen,
+  onClickButtonOpened,
+  onClickButtonClosed,
+  containerHeight,
+  containerColor,
+  buttonIconOpened,
+  buttonIconClosed,
+  buttonWidth,
+  buttonColor,
+  winner
+}) => (
+  <StyledContainer
+    isOpen={isOpen}
+    height={containerHeight}
+    color={containerColor}
+  >
+    <StyledButton
+      onClick={isOpen ? onClickButtonOpened : onClickButtonClosed}
+      width={buttonWidth}
+      color={buttonColor}
+    >
+      <i className="material-icons">
+        {isOpen ? buttonIconOpened : buttonIconClosed}
+      </i>
+    </StyledButton>
+    <StyledMessage isOpen={isOpen}>
+      {winner ? (
+        <Winner name={winner} />
+      ) : (
+        <Fragment>
+          <Winner name='x' />
+          <Winner name='o' />
+        </Fragment>
+      )}
+      <StyledMessageText>WIN!</StyledMessageText>
+    </StyledMessage>
+  </StyledContainer>
+)
 
 export default Alert
