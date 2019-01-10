@@ -7,7 +7,7 @@ const StyledContainer = styled.div`display: inline-block`
 
 const StyledPlayerContainer = styled.div`
   padding: 10px 10px;
-  background-color: ${WISTERIA};
+  background-color: ${props => props.background};
 
   // Centralize the player icon
   div {
@@ -21,17 +21,22 @@ const StyledScoreContainer = styled.div`
   font-weight: bold;
   text-align: center;
   color: black;
-  background-color: ${SUN_FLOWER};
+  background-color: ${props => props.background};
 `
 
 const Scoreboard = ({
   width,
   playerName,
   playerColor,
+  playerBackground,
+  scoreBackground,
   score = 0
 }) => (
   <StyledContainer>
-    <StyledPlayerContainer width={width}>
+    <StyledPlayerContainer
+      width={width}
+      background={playerBackground}
+    >
       <Player
         playerName={playerName}
         width={width - 20}
@@ -39,7 +44,10 @@ const Scoreboard = ({
         color={playerColor}
       />
     </StyledPlayerContainer>
-    <StyledScoreContainer width={width}>
+    <StyledScoreContainer
+      width={width}
+      background={scoreBackground}
+    >
       {score}
     </StyledScoreContainer>
   </StyledContainer>

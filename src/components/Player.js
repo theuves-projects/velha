@@ -9,7 +9,6 @@ const StyledPlayerX = styled.div`
   display: inline-block;
   width: ${props => props.width}px;
   height: ${props => props.width}px;
-  background-color: transparent;
   
   &::before,
   &::after {
@@ -21,7 +20,7 @@ const StyledPlayerX = styled.div`
     left: 50%;
     top: 50%;
     transform-origin: left top;
-    background-color: ${props => props.color};
+    background-color: ${props => props.colorPlayerX || props.color};
   }
   &::before {
     /* From left to right.
@@ -42,7 +41,7 @@ const StyledPlayerO = styled.div`
   box-sizing: border-box;
   border-radius: 50%;
   border-style: solid;
-  border-color: ${props => props.color};
+  border-color: ${props => props.colorPlayerO || props.color};
   border-width: ${props => props.lineWidth}px;
   background-color: transparent;
 ` 

@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import * as actions from '../actions/game'
 import { bindActionCreators } from 'redux'
 import styled from 'styled-components'
-import { SUN_FLOWER, MIDNIGHT_BLUE, ORANGE  } from '../colors'
+import { SUN_FLOWER, MIDNIGHT_BLUE, ORANGE, WISTERIA, NEPHRITIS  } from '../colors'
 import Scoreboard from '../components/Scoreboard'
 import Board from '../components/Board'
 import Alert from '../components/Alert'
@@ -77,28 +77,28 @@ class App extends Component {
     }
   }
   render() {
+    const { human, computer } = this.props.game.players
+
     return (
       <Fragment>
         <StyledScoreboardX onClick={() => this.togglePlayer('x')}>
           <Scoreboard
             width={50}
             playerName='x'
-            playerColor={this.props.game.players.human.name === 'x' ? SUN_FLOWER : 'white'}
-            score={this.props.game.players.human.name === 'x'
-              ? this.props.game.players.human.victories
-              : this.props.game.players.computer.victories
-            }
+            playerBackground={WISTERIA}
+            playerColor={human.name === 'x' ? SUN_FLOWER : 'white'}
+            score={human.name === 'x' ? human.victories : computer.victories}
+            scoreBackground={SUN_FLOWER}
           />
         </StyledScoreboardX>
         <StyledScoreboardO onClick={() => this.togglePlayer('o')}>
           <Scoreboard
             width={50}
             playerName='o'
-            playerColor={this.props.game.players.human.name === 'o' ? SUN_FLOWER : 'white'}
-            score={this.props.game.players.human.name === 'o'
-              ? this.props.game.players.human.victories
-              : this.props.game.players.computer.victories
-            }
+            playerBackground={WISTERIA}
+            playerColor={human.name === 'o' ? SUN_FLOWER : 'white'}
+            score={human.name === 'o' ? human.victories : computer.victories}
+            scoreBackground={SUN_FLOWER}
           />
         </StyledScoreboardO>
         <StyledBoard>
@@ -109,6 +109,8 @@ class App extends Component {
             cellColor='white'
             borderWidth={8}
             borderColor={MIDNIGHT_BLUE}
+            colorPlayerX={WISTERIA}
+            colorPlayerO={NEPHRITIS}
           />
         </StyledBoard>
         <Alert

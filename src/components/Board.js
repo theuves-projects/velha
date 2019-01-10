@@ -1,7 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import Player from './Player'
-import { WISTERIA, NEPHRITIS } from '../colors'
 
 const StyledGrid = styled.div`
   display: inline-grid;
@@ -14,6 +13,7 @@ const StyledGridItem = styled.div`
   position: relative;
   width: ${props => props.width}px;
   height: ${props => props.width}px;
+  cursor: pointer;
   background-color: ${props => props.color};
 
   > div {
@@ -41,7 +41,9 @@ const Board = ({
   cellWidth,
   cellColor,
   borderWidth,
-  borderColor
+  borderColor,
+  colorPlayerX,
+  colorPlayerO
 }) => (
   <StyledGrid
     width={borderWidth}
@@ -59,7 +61,8 @@ const Board = ({
             playerName={playerName}
             lineWidth={borderWidth}
             width={cellWidth - 20}
-            color={playerName === 'x' ? WISTERIA : NEPHRITIS}
+            colorPlayerX={colorPlayerX}
+            colorPlayerO={colorPlayerO}
           />
         ) : (
           null

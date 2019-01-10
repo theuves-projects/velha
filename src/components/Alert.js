@@ -23,6 +23,7 @@ const StyledButton = styled.button`
   left: 50%;
   transform: translate(-50%, -50%);
   transition: .15s linear;
+  cursor: pointer;
   color: white;
   background-color: ${props => props.color};
 
