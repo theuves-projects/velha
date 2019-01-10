@@ -1,20 +1,26 @@
-var path = require("path")
-var htmlWebpackPlugin = require("html-webpack-plugin")
+var path = require('path')
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+var CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   module: {
     rules: [{
       test: /\.jsx?$/,
       use: {
-        loader: "babel-loader"
+        loader: 'babel-loader'
       }
     }]
   },
   plugins: [
-    new htmlWebpackPlugin({
+    new HtmlWebpackPlugin({
       inject: false,
       hash: true,
-      template: path.resolve(__dirname, "src/template.ejs")
-    })
+      template: path.resolve(__dirname, 'src/template.ejs')
+    }),
+    new CopyWebpackPlugin([{
+      from: './public/**/*',
+      to: './[name].[ext]',
+      toType: 'template'
+    }])
   ]
 }

@@ -4,7 +4,8 @@
   "private": true,
   "description": "A simple tic-tac-toe game built with React.js.",
   "scripts": {
-    "watch": "webpack -w --mode development",
+    "build": "rm -rf ./dist/ && webpack --mode production",
+    "buid:watch": "webpack -w --mode development",
     "test": "jest --colors",
     "deploy": "gh-pages -d dist"
   },
@@ -18,6 +19,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "copy-webpack-plugin": "^4.6.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "gh-pages": "^2.0.1",
@@ -25,7 +27,7 @@
     "import-google-fonts": "0.0.2",
     "jest": "^22.4.3",
     "lightness": "^1.0.0",
-    "react": "^16.3.3",
+    "react": "^16.7.0",
     "react-dom": "^16.3.3",
     "react-redux": "^5.0.7",
     "redux": "^4.0.0",
