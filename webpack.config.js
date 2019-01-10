@@ -1,5 +1,5 @@
-const path = require("path");
-const htmlWebpackPlugin = require("html-webpack-plugin");
+var path = require("path")
+var htmlWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
   module: {
