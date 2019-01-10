@@ -37,13 +37,13 @@ const StyledPlayerX = styled.div`
 
 const StyledPlayerO = styled.div`
   display: inline-block;
-  width: ${props => props.width || 1}px;
-  height: ${props => props.width || 1}px;
+  width: ${props => props.width}px;
+  height: ${props => props.width}px;
   box-sizing: border-box;
   border-radius: 50%;
   border-style: solid;
-  border-color: ${props => props.color || 'black'};
-  border-width: ${props => props.lineWidth || 1}px;
+  border-color: ${props => props.color};
+  border-width: ${props => props.lineWidth}px;
   background-color: transparent;
 ` 
 

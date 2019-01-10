@@ -83,7 +83,7 @@ class App extends Component {
           <Scoreboard
             width={50}
             playerName='x'
-            playerColor={this.props.game.players.human.name === 'x' ? SUN_FLOWER : undefined}
+            playerColor={this.props.game.players.human.name === 'x' ? SUN_FLOWER : 'white'}
             score={this.props.game.players.human.name === 'x'
               ? this.props.game.players.human.victories
               : this.props.game.players.computer.victories
@@ -94,7 +94,7 @@ class App extends Component {
           <Scoreboard
             width={50}
             playerName='o'
-            playerColor={this.props.game.players.human.name === 'o' ? SUN_FLOWER : undefined}
+            playerColor={this.props.game.players.human.name === 'o' ? SUN_FLOWER : 'white'}
             score={this.props.game.players.human.name === 'o'
               ? this.props.game.players.human.victories
               : this.props.game.players.computer.victories
