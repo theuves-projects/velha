@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Player from './Player'
+import Player from './Player.jsx'
 
 const StyledGrid = styled.div`
   display: inline-grid;

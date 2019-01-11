@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import lightness from 'lightness'
-import Player from './Player'
+import Player from './Player.jsx'
 
 const StyledContainer = styled.div`
   position: absolute;

@@ -4,7 +4,7 @@ import styled, { createGlobalStyle } from 'styled-components'
 import importGoogleFonts from 'import-google-fonts'
 import { Provider } from 'react-redux'
 import store from './store'
-import App from './containers/App'
+import App from './containers/App.jsx'
 
 const StyledGlobal = createGlobalStyle`
   html,

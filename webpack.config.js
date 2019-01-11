@@ -3,6 +3,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin')
 var CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = {
+  entry: './src/index.jsx',
   module: {
     rules: [{
       test: /\.jsx?$/,

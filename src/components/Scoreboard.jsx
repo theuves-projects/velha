@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
-import Player from './Player'
 import { WISTERIA, SUN_FLOWER } from '../colors'
+import Player from './Player.jsx'
 
 const StyledContainer = styled.div`display: inline-block`
 

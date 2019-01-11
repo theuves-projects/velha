@@ -4,9 +4,9 @@ import * as actions from '../actions/game'
 import { bindActionCreators } from 'redux'
 import styled from 'styled-components'
 import { SUN_FLOWER, MIDNIGHT_BLUE, ORANGE, WISTERIA, NEPHRITIS  } from '../colors'
-import Scoreboard from '../components/Scoreboard'
-import Board from '../components/Board'
-import Alert from '../components/Alert'
+import Scoreboard from '../components/Scoreboard.jsx'
+import Board from '../components/Board.jsx'
+import Alert from '../components/Alert.jsx'
 
 const StyledScoreboard = styled.div`
   position: absolute;
