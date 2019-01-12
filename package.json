@@ -9,6 +9,9 @@
     "test": "jest --colors",
     "deploy": "gh-pages -d dist"
   },
+  "jest": {
+    "testEnvironment": "node"
+  },
   "author": "Matheus Alves",
   "license": "MIT",
   "devDependencies": {
@@ -20,8 +23,8 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "copy-webpack-plugin": "^4.6.0",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme": "^3.8.0",
+    "enzyme-adapter-react-16": "^1.7.1",
     "gh-pages": "^2.0.1",
     "html-webpack-plugin": "^3.2.0",
     "import-google-fonts": "0.0.2",
@@ -37,5 +40,8 @@
     "tttai": "0.0.2",
     "webpack": "^4.7.0",
     "webpack-cli": "^3.2.1"
+  },
+  "dependencies": {
+    "jsdom-global": "^3.0.2"
   }
 }
